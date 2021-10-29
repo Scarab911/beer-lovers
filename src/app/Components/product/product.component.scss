@@ -1,0 +1,23 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  button {
+    cursor: pointer;
+    background-color: #f7a61c;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-weight: 700;
+  }
+  button:hover {
+    background-color: #e48625;
+  }
+  img {
+    height: 100px;
+    cursor: pointer;
+  }
+}

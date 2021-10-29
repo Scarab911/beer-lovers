@@ -1,0 +1,42 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-image: url("../../../assets/Images/hero-beer-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    label {
+      font-size: 900;
+      text-decoration: solid;
+    }
+    .email {
+      width: 30ch;
+      padding: 5px;
+      line-height: 28px;
+      border: none;
+      border-radius: 5px;
+      opacity: 0.6;
+    }
+    .subscribe {
+      border: none;
+      border-radius: 15px;
+      width: 20ch;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+    .subscribe:hover {
+      color: #fff;
+      background-color: rgb(83, 0, 49);
+    }
+  }
+}

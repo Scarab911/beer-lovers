@@ -1,0 +1,9 @@
+<app-hero></app-hero>
+<div class="main-container">
+
+    <ng-container *ngFor="let item of itemsService.listOfProducts">
+
+        <app-product [item]='item'></app-product>
+
+    </ng-container>
+</div>
