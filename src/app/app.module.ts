@@ -10,8 +10,9 @@ import { HeroComponent } from './Components/hero/hero.component';
 import { BeerDescriptionComponent } from './Components/beer-description/beer-description.component';
 import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 import { BeerPageComponent } from './Components/beer-page/beer-page.component';
-import { GetIndexPipe } from './pipes/get-index.pipe';
+import { joinFoods as JoinFoods } from './pipes/join-foods.pipe';
 import { AboutComponent } from './Components/about/about.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { AboutComponent } from './Components/about/about.component';
     BeerDescriptionComponent,
     NotFoundPageComponent,
     BeerPageComponent,
-    GetIndexPipe,
-    AboutComponent
+    JoinFoods,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

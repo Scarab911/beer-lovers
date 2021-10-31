@@ -1,6 +1,7 @@
 <div>
     <img src="{{item.image_url}}"
-        alt="beer">
+        alt="beer"
+        [routerLink]="['/beer', item.id]">
     <h3>{{item.name}}</h3>
     <p>{{item.shortDesc}}</p>
     <p>Alcohol {{item.abv}} %</p>

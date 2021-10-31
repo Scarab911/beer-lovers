@@ -19,22 +19,23 @@
       font-size: 900;
       text-decoration: solid;
     }
-    .email {
+    .search-bar {
       width: 30ch;
       padding: 5px;
       line-height: 28px;
       border: none;
       border-radius: 5px;
       opacity: 0.6;
+      font-style: italic;
     }
-    .subscribe {
+    .btn-search {
       border: none;
       border-radius: 15px;
       width: 20ch;
       padding: 5px 15px;
       cursor: pointer;
     }
-    .subscribe:hover {
+    .btn-search:hover {
       color: #fff;
       background-color: rgb(83, 0, 49);
     }

@@ -6,8 +6,10 @@
         <p>Alcohol: <span>{{beer.abv}} %</span></p>
         <p>PH number: <span>{{beer.ph}}</span></p>
         <p class="desc">{{beer.description}}</p>
-        <p>Best food combinations: <span>{{beer.food_pairing}}</span>
+        <p>Best food combinations:
+            <span>{{beer.food_pairing?.join(', ')}}</span>
         </p>
-        <button>Mark as Favorite</button>
+        <button (click)="onAddFavorite.emit()">Mark as
+            Favorite</button>
     </div>
 </div>

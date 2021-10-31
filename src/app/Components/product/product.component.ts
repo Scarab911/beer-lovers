@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
     public onMoreInfo: EventEmitter<number>;
 
   constructor() {
-    this.onMoreInfo = new EventEmitter()
+    this.onMoreInfo = new EventEmitter();
    }
 
   ngOnInit(): void {

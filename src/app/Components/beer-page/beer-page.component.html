@@ -1,5 +1,6 @@
 <app-header>
 </app-header>
 
-<app-beer-description [beer]='beer'>
+<app-beer-description [beer]='beer'
+    (onAddFavorite)="pushFavorite()">
 </app-beer-description>

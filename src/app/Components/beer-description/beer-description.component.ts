@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Item } from 'src/app/Models/item';
-import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
   selector: 'app-beer-description [beer]',
@@ -12,9 +11,15 @@ export class BeerDescriptionComponent implements OnInit {
   @Input()
     public beer!: Item;
 
-  constructor(  ) { }
+  @Output() 
+    public onAddFavorite: EventEmitter<void>;
+
+  constructor( ) {
+    this.onAddFavorite = new EventEmitter();
+   }
 
   ngOnInit(): void {
   }
 
+  
 }
