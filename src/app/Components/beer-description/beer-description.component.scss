@@ -1,0 +1,43 @@
+.beer-desc {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  img {
+    height: 40%;
+  }
+  .beer-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 10px;
+    padding: 10px;
+  }
+  button {
+    cursor: pointer;
+    background-color: #f7a61c;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  button:hover {
+    background-color: #e48625;
+  }
+  p {
+    font-weight: 700;
+    span {
+      font-weight: 400;
+    }
+  }
+  .desc {
+    line-height: 32px;
+    font-style: 24px;
+    font-weight: 400;
+  }
+}

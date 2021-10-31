@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { ItemsService } from 'src/app/Services/items.service';
 })
 export class ProductsListComponent implements OnInit {
 
+  // @Input() beerInfo!: BeerInfo;
+
   constructor(
     public itemsService: ItemsService
   ) {}
@@ -15,4 +17,21 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // public getIndex(id:number): number {
+  //   console.log('paspausto item id:', id);
+
+  //   let index = 0;
+
+  //   for(var i = 0; i < this.itemsService.listOfProducts.length; i++) {
+  //     if(this.itemsService.listOfProducts[i].id === id) {
+  //         index = i;
+  //         break;
+  //       }
+  //   } 
+
+  //   // const thisIndex = this.itemsService.listOfProducts.indexOf((obj) => {obj.id === id});
+
+  //   console.log('paspausto item indexas:', index);
+  //   return index
+  // }
 }

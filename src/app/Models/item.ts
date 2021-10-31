@@ -9,9 +9,5 @@ export class Item {
         public description?: string,
         public food_pairing?: string [],
         public ph?: number
-    ){
-        this.id = id;
-        this.name = name;
-        this.shortDesc = shortDesc;
-    }
+    ){}
 }

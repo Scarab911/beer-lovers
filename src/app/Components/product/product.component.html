@@ -4,5 +4,5 @@
     <h3>{{item.name}}</h3>
     <p>{{item.shortDesc}}</p>
     <p>Alcohol {{item.abv}} %</p>
-    <button>More Info</button>
+    <button [routerLink]="['/beer', item.id]">More Info</button>
 </div>

@@ -7,6 +7,11 @@ import { ProductComponent } from './Components/product/product.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HeroComponent } from './Components/hero/hero.component';
+import { BeerDescriptionComponent } from './Components/beer-description/beer-description.component';
+import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
+import { BeerPageComponent } from './Components/beer-page/beer-page.component';
+import { GetIndexPipe } from './pipes/get-index.pipe';
+import { AboutComponent } from './Components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,12 @@ import { HeroComponent } from './Components/hero/hero.component';
     ProductComponent,
     ProductsListComponent,
     HeaderComponent,
-    HeroComponent
+    HeroComponent,
+    BeerDescriptionComponent,
+    NotFoundPageComponent,
+    BeerPageComponent,
+    GetIndexPipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
