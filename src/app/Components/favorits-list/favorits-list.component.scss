@@ -1,0 +1,9 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  width: 200px;
+  word-break: keep-all;
+}

@@ -10,7 +10,7 @@ export class ProductComponent implements OnInit {
 
   @Input()
     public item!: Item;
-
+    
   @Output()
     public onMoreInfo: EventEmitter<number>;
 

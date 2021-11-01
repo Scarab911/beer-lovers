@@ -5,6 +5,7 @@ import { ProductsListComponent } from './Components/products-list/products-list.
 import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { AboutComponent } from './Components/about/about.component';
+import { FavoritsListComponent } from './Components/favorits-list/favorits-list.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'about',
     component: AboutComponent
+  },
+  {
+    path:'favorites',
+    component: FavoritsListComponent
   },
   {
     path:'**',

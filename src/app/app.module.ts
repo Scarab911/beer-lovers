@@ -13,6 +13,8 @@ import { BeerPageComponent } from './Components/beer-page/beer-page.component';
 import { joinFoods as JoinFoods } from './pipes/join-foods.pipe';
 import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { FavoritsListComponent } from './Components/favorits-list/favorits-list.component';
+import { FavoritProductComponent } from './Components/favorit-product/favorit-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ContactComponent } from './Components/contact/contact.component';
     BeerPageComponent,
     JoinFoods,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    FavoritsListComponent,
+    FavoritProductComponent
   ],
   imports: [
     BrowserModule,

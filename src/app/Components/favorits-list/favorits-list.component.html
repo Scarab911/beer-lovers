@@ -1,0 +1,10 @@
+<div>
+    <h3>Your Favorite Beers:</h3>
+    <ng-container *ngFor="let item of favoriteBeersList">
+        <app-favorit-product [item]="item"
+            (onItemRemoved)="removeFavoriteItem(item.id)">
+        </app-favorit-product>
+    </ng-container>
+
+    <button [routerLink]="['/favorites']">Show all favorites</button>
+</div>

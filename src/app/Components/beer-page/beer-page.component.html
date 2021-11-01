@@ -1,6 +1,9 @@
 <app-header>
 </app-header>
-
-<app-beer-description [beer]='beer'
-    (onAddFavorite)="pushFavorite()">
-</app-beer-description>
+<div class="main-container">
+    <app-beer-description [beer]='beer'
+        (onAddFavorite)="pushFavorite()">
+    </app-beer-description>
+    <app-favorits-list></app-favorits-list>
+    <!-- <button [routerLink]="['/favorites']">Go to favorite list</button> -->
+</div>

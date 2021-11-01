@@ -5,14 +5,17 @@ div {
   align-items: center;
   gap: 10px;
   padding: 10px;
+
   h3 {
     text-align: center;
     word-break: keep-all;
   }
+
   p {
     text-align: center;
     word-break: keep-all;
   }
+
   button {
     cursor: pointer;
     background-color: #f7a61c;
@@ -21,9 +24,11 @@ div {
     padding: 5px 15px;
     font-weight: 700;
   }
+
   button:hover {
     background-color: #e48625;
   }
+
   img {
     height: 100px;
     cursor: pointer;

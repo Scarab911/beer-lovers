@@ -1,0 +1,7 @@
+<div>
+    <img src="{{item.image_url}}"
+        alt="beer"
+        [routerLink]="['/beer', item.id]">
+    <h3>{{item.name}}</h3>
+    <button (click)="onItemRemoved.emit(item.id)">Remove</button>
+</div>
