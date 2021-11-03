@@ -1,13 +1,20 @@
 <div class="hero">
     <h1>WE LOVE BEER</h1>
-    <form action="">
-        <label for="search">Search for beer brand:</label>
-        <input class="search-bar"
-            type="search"
-            name="search"
-            placeholder="Corona">
-        <input class="btn-search"
-            type="submit"
-            value="Get Beer">
+    <form #searchForm="ngForm">
+
+        <div class="form-group">
+            {{searchForm.value | json}}
+            <label for="search">Search for beer brand:</label>
+
+            <input class="search-bar"
+                type="search"
+                name="searchText"
+                placeholder="Corona"
+                [(ngModel)]="searchString">
+        </div>
+
+        <button class="btn-search"
+            (click)="getSearchString()">Get
+            Beer</button>
     </form>
 </div>

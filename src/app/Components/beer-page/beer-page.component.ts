@@ -22,7 +22,7 @@ export class BeerPageComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']; //surandam paspausto elemento id per snapshot
    
-    this.beer = this.itemsService.getBeer(this.id)
+    this.beer = this.itemsService.getBeerByID(this.id)
     // console.log(this.beer);
     
   }

@@ -15,6 +15,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { FavoritsListComponent } from './Components/favorits-list/favorits-list.component';
 import { FavoritProductComponent } from './Components/favorit-product/favorit-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FavoritProductComponent } from './Components/favorit-product/favorit-pr
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

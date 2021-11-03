@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
   selector: 'app-hero',
@@ -6,10 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
+  
+  public searchString?: string;
 
-  constructor() { }
+  @Output() onSearch: EventEmitter<string>;
+
+  constructor( 
+              private router: Router, 
+              private itemsService: ItemsService) {
+
+    this.onSearch = new EventEmitter<string>();
+   }
 
   ngOnInit(): void {
+    this.searchString!= '';
   }
 
+  public getSearchString(): void {
+    
+    console.log('mygtukas paspaustas',this.searchString);
+    this.router.navigate(['/home']).then(()=>{
+       this.itemsService.getBeerByName(this.searchString);
+    });
+  }
+
+  public onSubmit(text:string) {
+  // po nukreipimo filtruojam toliau
+    this.router.navigate(['/home']).then(()=>{
+       this.itemsService.getBeerByName(text);
+    });
+  }
 }

@@ -23,12 +23,20 @@ export class ItemsService {
     this.listOfProducts.push(new Item(145, 'Grinbergen', 'Dark solid beer', 6.5,'../../assets/Images/grimbergen.jpg','Grimbergen Double Ambrée is an authentic and savoury abbey beer, renowned for its unique well-balanced contrast between spicy and fruity notes. NOSE: Strong fragrances of caramel and liquorice blend with the more subtle smells of red fruits, prunes and roasted malt.', [], 4.3));
   }
 
-  public getBeer(id:number): Item {
+  public getBeerByID(id:number): Item {
     //find object by snapshoted id:
     const beer = this.listOfProducts.find((obj:Item) => obj.id == id); //nereikia {} arrow funcijoj arba tada reikia deti return!!!
     
     if (beer !== undefined) {
       return beer
+    }
+      return this.listOfProducts[0]
+  }
+
+  public getBeerByName(name?: string): Item {
+    const beerByName = this.listOfProducts.find((obj) => obj.name == name)
+    if (beerByName !== undefined) {
+      return beerByName
     }
       return this.listOfProducts[0]
   }
