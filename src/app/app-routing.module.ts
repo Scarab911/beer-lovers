@@ -6,6 +6,7 @@ import { NotFoundPageComponent } from './Components/not-found-page/not-found-pag
 import { ContactComponent } from './Components/contact/contact.component';
 import { AboutComponent } from './Components/about/about.component';
 import { FavoritsListComponent } from './Components/favorits-list/favorits-list.component';
+import { AddItemComponent } from './Components/add-item/add-item.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path:'contacts',
     component: ContactComponent
+  },
+  {
+    path:'additem',
+    component: AddItemComponent
   },
   {
     path:'about',

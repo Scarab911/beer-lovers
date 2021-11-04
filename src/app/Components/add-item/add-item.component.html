@@ -1,0 +1,130 @@
+<div class="container">
+    <h1>Fill in the form to add more items</h1>
+
+    <form #addForm="ngForm">
+
+        <div class="form-group">
+            <label for="item-id">Enter ID</label>
+            <input type="number"
+                required
+                name="idInput"
+                ngModel
+                minlength="1"
+                maxlength="10"
+                placeholder="Enter id"
+                #itemIdInput="ngModel">
+
+            <div class="erorr"
+                *ngIf="itemIdInput.touched && !itemIdInput.valid">
+                Invalid product id!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-name">Enter full name</label>
+            <input type="text"
+                required
+                name="nameInput"
+                ngModel
+                minlength="2"
+                maxlength="10"
+                placeholder="Enter name">
+            <div
+                *ngIf="addForm.controls.nameInput.touched && addForm.controls.nameInput.status == 'INVALID'">
+                Invalid product name!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-shortDsc">Enter short description</label>
+            <input type="text"
+                required
+                name="shdscInput"
+                ngModel
+                minlength="5"
+                maxlength="25"
+                placeholder="Short description">
+
+            <div
+                *ngIf="addForm.controls.shdscInput.touched && addForm.controls.shdscInput.status == 'INVALID'">
+                Invalid description!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-abv">Enter percent of alcohol</label>
+            <input type="number"
+                required
+                name="abvInput"
+                ngModel
+                minlength="5"
+                maxlength="25"
+                placeholder="Percent of alcohol">
+            <div
+                *ngIf="addForm.controls.abvInput.touched && addForm.controls.abvInput.status == 'INVALID'">
+                Invalid abv number!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-imgUrl">Enter image url</label>
+            <input type="text"
+                required
+                name="urlInput"
+                ngModel
+                minlength="5"
+                placeholder="Url">
+            <div
+                *ngIf="addForm.controls.urlInput.touched && addForm.controls.urlInput.status == 'INVALID'">
+                Invalid image url!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-desc">Enter full description</label>
+            <textarea name="description"
+                required
+                ngModel
+                minlength="20"
+                placeholder="Description"
+                cols="30"
+                rows="10">
+            </textarea>
+            <div
+                *ngIf="addForm.controls.description.touched && addForm.controls.description.status == 'INVALID'">
+                Invalid description!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-food">Enter short description</label>
+            <input type="text"
+                name="foodInput"
+                ngModel
+                placeholder="Short description">
+            <div
+                *ngIf="addForm.controls.foodInput.touched && addForm.controls.foodInput.status == 'INVALID'">
+                Invalid food pairing!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="item-ph">Enter pH number</label>
+            <input type="number"
+                required
+                name="phInput"
+                ngModel
+                minlength="1"
+                maxlength="4"
+                placeholder="pH number">
+
+            <div
+                *ngIf="addForm.controls.phInput.touched &&addForm.controls.phInput.status == 'INVALID'">
+                Invalid pH entered!
+            </div>
+        </div>
+
+        <button (click)="getInfo(addForm)"
+            [disabled]="addForm.invalid">Add Product</button>
+    </form>
+</div>
