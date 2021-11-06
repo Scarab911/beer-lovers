@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Item } from '../Models/item';
 
 @Injectable({
@@ -7,20 +9,25 @@ import { Item } from '../Models/item';
 export class ItemsService {
   public listOfProducts: Item [];
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this.listOfProducts = [];
 
-    this.listOfProducts.push(new Item(261, 'Grinbergen', 'Dark solid beer', 6.5,'../../assets/Images/grimbergen.jpg','Grimbergen Double Ambrée is an authentic and savoury abbey beer, renowned for its unique well-balanced contrast between spicy and fruity notes. NOSE: Strong fragrances of caramel and liquorice blend with the more subtle smells of red fruits, prunes and roasted malt.', ['Baked beetroot salad','Roasted peanuts'], 4.3));
+  }
 
-    this.listOfProducts.push(new Item(237, 'Kroonenburg Blanch', 'Aromatised wheat beer', 4.7,'../../assets/Images/blanch.jpg', 'Kronenbourg 1664 Blanc is an exquisitely fruity French wheat beer that is crafted to refresh that was launched in 2006. The deliciously hazy yellow 5% beer is brewed with a light French touch to give subtle aromas and delicate layers of citrus fruits and coriander spice.',[],3.9));
+  public getBeer(): void {
+    const request = this.http.get('https://api.punkapi.com/v2/beers');
 
-    this.listOfProducts.push(new Item(242, 'Žigulinis', 'Lager hop beer', 4.2,'../../assets/Images/zigulinis.jpg', 'A simple lager beer of one hop flower and one malt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, porro. Ipsa facilis sequi corrupti consectetur beatae accusamus soluta architecto id!',[], 3.7));
+    request.subscribe((response: any) => {
+      this.listOfProducts = response;
+    });
+  }
 
-    this.listOfProducts.push(new Item(268, 'Kroonenburg Blanch', 'Aromatised wheat beer', 4.7,'../../assets/Images/blanch.jpg', 'Kronenbourg 1664 Blanc is an exquisitely fruity French wheat beer that is crafted to refresh that was launched in 2006. The deliciously hazy yellow 5% beer is brewed with a light French touch to give subtle aromas and delicate layers of citrus fruits and coriander spice.',[],3.9));
-    
-    this.listOfProducts.push(new Item(36, 'Žigulinis', 'Lager hop beer', 4.2,'../../assets/Images/zigulinis.jpg', 'A simple lager beer of one hop flower and one malt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, porro. Ipsa facilis sequi corrupti consectetur beatae accusamus soluta architecto id!',[], 3.7));
-    
-    this.listOfProducts.push(new Item(145, 'Grinbergen', 'Dark solid beer', 6.5,'../../assets/Images/grimbergen.jpg','Grimbergen Double Ambrée is an authentic and savoury abbey beer, renowned for its unique well-balanced contrast between spicy and fruity notes. NOSE: Strong fragrances of caramel and liquorice blend with the more subtle smells of red fruits, prunes and roasted malt.', [], 4.3));
+  public getnextBearPage(): void {
+    const request = this.http.get('https://api.punkapi.com/v2/beers?page=2');
+
+    request.subscribe((response: any) => {
+      this.listOfProducts = response;
+    });
   }
 
   public getBeerByID(id:number): Item {

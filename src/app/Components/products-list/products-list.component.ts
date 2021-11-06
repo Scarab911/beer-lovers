@@ -15,8 +15,12 @@ export class ProductsListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+  this.itemsService.getBeer();
   }
 
+  public nextPage(){
+    this.itemsService.getnextBearPage();
+  }
   // public getIndex(id:number): number {
   //   console.log('paspausto item id:', id);
 

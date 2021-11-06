@@ -3,7 +3,7 @@ export class Item {
     constructor(
         public id: number,
         public name: string,
-        public shortDesc: string,
+        public tagline: string,
         public abv: number,
         public image_url: string,
         public description?: string,

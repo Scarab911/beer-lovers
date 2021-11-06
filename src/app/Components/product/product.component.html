@@ -3,7 +3,7 @@
         alt="beer"
         [routerLink]="['/beer', item.id]">
     <h3>{{item.name}}</h3>
-    <p>{{item.shortDesc}}</p>
+    <p>{{item.tagline}}</p>
     <p>Alcohol {{item.abv}} %</p>
     <button [routerLink]="['/beer', item.id]">More Info</button>
 </div>
