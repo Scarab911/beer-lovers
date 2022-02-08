@@ -22,7 +22,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 
     this.$subs = this.itemsService.receivedSearchString().subscribe((data) => {
       this.searchString = data;
-      // this.itemsService.getBeerByName(this.searchString);
+      this.itemsService.getBeerByName(this.searchString);
     });
   }
 
