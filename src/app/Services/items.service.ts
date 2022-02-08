@@ -1,17 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Item } from '../Models/item';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ItemsService {
-  public listOfProducts: Item [];
+  public listOfProducts: Item[];
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.listOfProducts = [];
-
   }
 
   public getBeer(): void {
@@ -30,21 +28,22 @@ export class ItemsService {
     });
   }
 
-  public getBeerByID(id:number): Item {
+  public getBeerByID(id: number): Item {
     //find object by snapshoted id:
-    const beer = this.listOfProducts.find((obj:Item) => obj.id == id); //nereikia {} arrow funcijoj arba tada reikia deti return!!!
-    
+    const beer = this.listOfProducts.find((obj: Item) => obj.id == id); //nereikia {} arrow funkcijoj arba tada reikia deti return!!!
+
     if (beer !== undefined) {
-      return beer
+      return beer;
     }
-      return this.listOfProducts[0]
+    return this.listOfProducts[0];
   }
 
-  public getBeerByName(name?: string): Item {
-    const beerByName = this.listOfProducts.find((obj) => obj.name == name)
-    if (beerByName !== undefined) {
-      return beerByName
-    }
-      return this.listOfProducts[0]
+  public getBeerByName(name?: string): void {
+    console.log(name);
+
+    this.listOfProducts = this.listOfProducts.filter(
+      (beer) => beer.name.toLowerCase() == name
+    );
+    console.log(this.listOfProducts);
   }
 }

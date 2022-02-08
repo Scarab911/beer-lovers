@@ -1,7 +1,8 @@
 <app-header></app-header>
 <app-hero></app-hero>
 <div class="main-container">
-
+    <div *ngIf='itemsService.listOfProducts === []'>Beer Not Found
+    </div>
     <ng-container *ngFor="let item of itemsService.listOfProducts">
 
         <app-product [item]='item'>

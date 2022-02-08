@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(public itemsService: ItemsService) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  getBeers(): void {
+    this.itemsService.getBeer();
   }
-
 }

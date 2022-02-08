@@ -1,41 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/Models/item';
 import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
+  public beerList: Item[];
 
-  // @Input() beerInfo!: BeerInfo;
-
-  constructor(
-    public itemsService: ItemsService
-  ) {}
+  constructor(public itemsService: ItemsService) {
+    this.beerList = [];
+  }
 
   ngOnInit(): void {
-  this.itemsService.getBeer();
+    this.itemsService.getBeer();
   }
 
-  public nextPage(){
+  public nextPage() {
     this.itemsService.getnextBearPage();
   }
-  // public getIndex(id:number): number {
-  //   console.log('paspausto item id:', id);
-
-  //   let index = 0;
-
-  //   for(var i = 0; i < this.itemsService.listOfProducts.length; i++) {
-  //     if(this.itemsService.listOfProducts[i].id === id) {
-  //         index = i;
-  //         break;
-  //       }
-  //   } 
-
-  //   // const thisIndex = this.itemsService.listOfProducts.indexOf((obj) => {obj.id === id});
-
-  //   console.log('paspausto item indexas:', index);
-  //   return index
-  // }
 }
