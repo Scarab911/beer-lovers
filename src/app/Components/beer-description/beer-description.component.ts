@@ -32,11 +32,11 @@ export class BeerDescriptionComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('pasileido beer description');
 
-    this.$subs = this.itemService.receivedSearchString().subscribe((data) => {
-      this.searchString = data;
-    });
+    // this.$subs = this.itemService.receivedSearchString().subscribe((data) => {
+    //   this.searchString = data;
+    // });
   }
   ngOnDestroy(): void {
-    this.$subs.unsubscribe;
+    // this.$subs.unsubscribe;
   }
 }

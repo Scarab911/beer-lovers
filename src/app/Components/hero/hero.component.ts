@@ -22,7 +22,7 @@ export class HeroComponent implements OnInit {
 
   public getSearchString(text: string): void {
     // console.log('mygtukas paspaustas', this.searchString);
-    this.itemsService.searchString(text);
+    // this.itemsService.searchString(text);
     // this.router.navigate(['/home']).then(() => {
     //   this.itemsService.getBeerByName(this.searchString);
     // });

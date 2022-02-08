@@ -12,6 +12,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   getBeers(): void {
-    this.itemsService.getBeer();
+    // this.itemsService.getBeer();
   }
 }

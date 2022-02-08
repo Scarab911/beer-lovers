@@ -1,31 +1,58 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import {
+  AsyncSubject,
+  BehaviorSubject,
+  Observable,
+  ReplaySubject,
+  Subject,
+} from 'rxjs';
 import { Item } from '../Models/item';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
-  private searchSubject = new BehaviorSubject<string>('');
+  // private searchSubject = new BehaviorSubject<string>('');
+  private allProductsSubject: BehaviorSubject<any>;
 
   public listOfProducts: Item[];
 
   constructor(private http: HttpClient) {
     this.listOfProducts = [];
+    this.allProductsSubject = new BehaviorSubject(null);
   }
 
-  public searchString(message: string): void {
-    this.searchSubject.next(message);
+  public get receivedBeersList() {
+    console.log('metodas RECEIVE BEERS LIST iskviestas');
+
+    return this.allProductsSubject.asObservable();
   }
-  public receivedSearchString(): Observable<string> {
-    return this.searchSubject.asObservable();
+
+  //Service methods for http requests
+  public getBeersRequest(): void {
+    console.log('siunciam request');
+
+    const request = this.http.get('https://api.punkapi.com/v2/beers');
+    // console.log(request);
+
+    this.allProductsSubject.next(request);
   }
+
+  //Search methods
+  // public searchString(message: string): void {
+  //   this.searchSubject.next(message);
+  // }
+  // public receivedSearchString(): Observable<string> {
+  //   return this.searchSubject.asObservable();
+  // }
 
   public getBeer(): void {
     const request = this.http.get('https://api.punkapi.com/v2/beers');
 
     request.subscribe((response: any) => {
+      console.log(response);
+
       this.listOfProducts = response;
     });
   }
@@ -49,9 +76,6 @@ export class ItemsService {
   }
 
   public getBeerByName(name: string): void {
-    console.log(name);
-    console.log(this.listOfProducts);
-
     if (this.listOfProducts.length === 0) {
       console.log('tuscias array');
       this.getBeer();
@@ -63,6 +87,5 @@ export class ItemsService {
     this.listOfProducts = this.listOfProducts.filter((beer) =>
       beer.name.toLowerCase().includes(name.toLowerCase())
     );
-    console.log(this.listOfProducts);
   }
 }
