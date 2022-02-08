@@ -9,11 +9,13 @@
                 type="search"
                 name="searchText"
                 placeholder="Corona"
-                [(ngModel)]="searchString">
+                [(ngModel)]="searchString"
+                #search>
         </div>
 
         <button class="btn-search"
-            (click)="getSearchString()">Get
+            (click)="getSearchString(search.value)">Get
             Beer</button>
+        {{search.value}}
     </form>
 </div>

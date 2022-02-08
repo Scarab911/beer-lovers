@@ -8,7 +8,7 @@ import { ItemsService } from 'src/app/Services/items.service';
   styleUrls: ['./hero.component.scss'],
 })
 export class HeroComponent implements OnInit {
-  public searchString?: string;
+  public searchString!: string;
 
   @Output() onSearch: EventEmitter<string>;
 
@@ -20,11 +20,12 @@ export class HeroComponent implements OnInit {
     this.searchString != '';
   }
 
-  public getSearchString(): void {
+  public getSearchString(text: string): void {
     console.log('mygtukas paspaustas', this.searchString);
-    this.router.navigate(['/home']).then(() => {
-      this.itemsService.getBeerByName(this.searchString);
-    });
+    this.itemsService.sendMsg(text);
+    // this.router.navigate(['/home']).then(() => {
+    //   this.itemsService.getBeerByName(this.searchString);
+    // });
   }
 
   public onSubmit(text: string) {

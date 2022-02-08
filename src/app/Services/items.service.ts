@@ -1,15 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Item } from '../Models/item';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
+  private subject = new Subject<string>();
+
   public listOfProducts: Item[];
 
   constructor(private http: HttpClient) {
     this.listOfProducts = [];
+  }
+  public sendMsg(message: string): void {
+    this.subject.next(message);
+  }
+  public receivedMsg(): Observable<string> {
+    return this.subject.asObservable();
   }
 
   public getBeer(): void {
@@ -38,11 +47,20 @@ export class ItemsService {
     return this.listOfProducts[0];
   }
 
-  public getBeerByName(name?: string): void {
+  public getBeerByName(name: string): void {
     console.log(name);
+    console.log(this.listOfProducts);
 
-    this.listOfProducts = this.listOfProducts.filter(
-      (beer) => beer.name.toLowerCase() == name
+    if (this.listOfProducts.length === 0) {
+      console.log('tuscias array');
+      this.getBeer();
+    } else if (this.listOfProducts.length === 1) {
+      console.log(this.listOfProducts.length);
+      this.getBeer();
+    }
+
+    this.listOfProducts = this.listOfProducts.filter((beer) =>
+      beer.name.toLowerCase().includes(name.toLowerCase())
     );
     console.log(this.listOfProducts);
   }
