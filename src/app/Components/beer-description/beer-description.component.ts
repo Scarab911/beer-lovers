@@ -1,25 +1,32 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Item } from 'src/app/Models/item';
+import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
   selector: 'app-beer-description [beer]',
   templateUrl: './beer-description.component.html',
-  styleUrls: ['./beer-description.component.scss']
+  styleUrls: ['./beer-description.component.scss'],
 })
 export class BeerDescriptionComponent implements OnInit {
+  searchString: string = '';
+  $subs!: Subscription;
 
   @Input()
-    public beer!: Item;
+  public beer!: Item;
 
-  @Output() 
-    public onAddFavorite: EventEmitter<void>;
+  @Output()
+  public onAddFavorite: EventEmitter<void>;
 
-  constructor( ) {
+  constructor(private itemService: ItemsService) {
     this.onAddFavorite = new EventEmitter();
-   }
-
-  ngOnInit(): void {
   }
 
-  
+  ngOnInit(): void {
+    console.log('pasileido beer description');
+
+    this.$subs = this.itemService.receivedSearchString().subscribe((data) => {
+      this.searchString = data;
+    });
+  }
 }

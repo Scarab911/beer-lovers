@@ -10,7 +10,7 @@ import { ItemsService } from 'src/app/Services/items.service';
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
   public beerList: Item[];
-  message: string = '';
+  searchString: string = '';
   $subs!: Subscription;
 
   constructor(public itemsService: ItemsService) {
@@ -19,8 +19,10 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.itemsService.getBeer();
-    this.$subs = this.itemsService.receivedMsg().subscribe((data) => {
-      this.message = data;
+
+    this.$subs = this.itemsService.receivedSearchString().subscribe((data) => {
+      this.searchString = data;
+      // this.itemsService.getBeerByName(this.searchString);
     });
   }
 

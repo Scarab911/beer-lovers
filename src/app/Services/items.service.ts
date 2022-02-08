@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Item } from '../Models/item';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
-  private subject = new Subject<string>();
+  private searchSubject = new BehaviorSubject<string>('');
 
   public listOfProducts: Item[];
 
   constructor(private http: HttpClient) {
     this.listOfProducts = [];
   }
-  public sendMsg(message: string): void {
-    this.subject.next(message);
+
+  public searchString(message: string): void {
+    this.searchSubject.next(message);
   }
-  public receivedMsg(): Observable<string> {
-    return this.subject.asObservable();
+  public receivedSearchString(): Observable<string> {
+    return this.searchSubject.asObservable();
   }
 
   public getBeer(): void {
