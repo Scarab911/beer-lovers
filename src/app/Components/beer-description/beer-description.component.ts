@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Item } from 'src/app/Models/item';
+import { BeersService } from 'src/app/Services/beers.service';
 import { ItemsService } from 'src/app/Services/items.service';
 
 @Component({
@@ -16,8 +17,8 @@ import { ItemsService } from 'src/app/Services/items.service';
   styleUrls: ['./beer-description.component.scss'],
 })
 export class BeerDescriptionComponent implements OnInit, OnDestroy {
-  searchString: string = '';
-  $subs!: Subscription;
+  // searchString: string = '';
+  // $subs!: Subscription;
 
   @Input()
   public beer!: Item;
@@ -25,7 +26,10 @@ export class BeerDescriptionComponent implements OnInit, OnDestroy {
   @Output()
   public onAddFavorite: EventEmitter<void>;
 
-  constructor(private itemService: ItemsService) {
+  constructor(
+    private itemsService: ItemsService,
+    private beerService: BeersService
+  ) {
     this.onAddFavorite = new EventEmitter();
   }
 

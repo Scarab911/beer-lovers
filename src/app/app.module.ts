@@ -16,7 +16,10 @@ import { NotFoundPageComponent } from './Components/not-found-page/not-found-pag
 import { ProductComponent } from './Components/product/product.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
 import { joinFoods as JoinFoods } from './pipes/join-foods.pipe';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { BeersService } from './Services/beers.service';
+import { ItemsService } from './Services/items.service';
+import { FavoriteService } from './Services/favorite.service';
 
 @NgModule({
   declarations: [
@@ -33,15 +36,10 @@ import { HttpClientModule } from "@angular/common/http";
     ContactComponent,
     FavoritsListComponent,
     FavoritProductComponent,
-    AddItemComponent
+    AddItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [BeersService, ItemsService, FavoriteService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,7 +4,7 @@
     <!-- {{searchString}} -->
     <div *ngIf='itemsService.listOfProducts === []'>Beer Not Found
     </div>
-    <ng-container *ngFor="let item of itemsService.listOfProducts ">
+    <ng-container *ngFor="let item of beerList ">
 
         <app-product [item]='item'>
         </app-product>

@@ -56,7 +56,8 @@ export class ItemsService {
   }
 
   public getBeerByID(id: number): Item {
-    //find object by snapshoted id:
+    //find object from snapshoted id:
+
     const beer = this.listOfProducts.find((obj: Item) => obj.id == id); //nereikia {} arrow funkcijoj arba tada reikia deti return!!!
 
     if (beer !== undefined) {

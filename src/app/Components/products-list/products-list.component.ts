@@ -27,7 +27,8 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.beerService.subject.subscribe((d) => {
       this.itemsService.listOfProducts = d;
-      console.log('this is new list:', d);
+      this.beerList = d;
+      console.log('this is new list:', this.beerList);
     });
     // this.itemsService.getBeer();
 
