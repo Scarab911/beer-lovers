@@ -1,12 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  AsyncSubject,
-  BehaviorSubject,
-  Observable,
-  ReplaySubject,
-  Subject,
-} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Item } from '../Models/item';
 
 @Injectable({
@@ -24,19 +18,15 @@ export class ItemsService {
   }
 
   public get receivedBeersList() {
-    console.log('metodas RECEIVE BEERS LIST iskviestas');
-
     return this.allProductsSubject.asObservable();
   }
 
   //Service methods for http requests
   public getBeersRequest(): void {
-    console.log('siunciam request');
+    // const request = this.http.get('https://api.punkapi.com/v2/beers');
+    // // console.log(request);
 
-    const request = this.http.get('https://api.punkapi.com/v2/beers');
-    // console.log(request);
-
-    this.allProductsSubject.next(request);
+    this.allProductsSubject.next(this.listOfProducts);
   }
 
   //Search methods
@@ -77,7 +67,6 @@ export class ItemsService {
 
   public getBeerByName(name: string): void {
     if (this.listOfProducts.length === 0) {
-      console.log('tuscias array');
       this.getBeer();
     } else if (this.listOfProducts.length === 1) {
       console.log(this.listOfProducts.length);
