@@ -7,35 +7,35 @@ import { Item } from '../Models/item';
   providedIn: 'root',
 })
 export class ItemsService {
-  // private searchSubject = new BehaviorSubject<string>('');
-  private allProductsSubject: BehaviorSubject<any>;
+  private searchSubject = new BehaviorSubject<string>('');
+  // allProductsSubject: BehaviorSubject<any>;
 
   public listOfProducts: Item[];
 
   constructor(private http: HttpClient) {
     this.listOfProducts = [];
-    this.allProductsSubject = new BehaviorSubject(null);
+    // this.allProductsSubject = new BehaviorSubject(null);
   }
 
-  public get receivedBeersList() {
-    return this.allProductsSubject.asObservable();
-  }
-
-  //Service methods for http requests
-  public getBeersRequest(): void {
-    // const request = this.http.get('https://api.punkapi.com/v2/beers');
-    // // console.log(request);
-
-    this.allProductsSubject.next(this.listOfProducts);
-  }
-
-  //Search methods
-  // public searchString(message: string): void {
-  //   this.searchSubject.next(message);
+  // public get receivedBeersList() {
+  //   return this.allProductsSubject.asObservable();
   // }
-  // public receivedSearchString(): Observable<string> {
-  //   return this.searchSubject.asObservable();
+
+  // //Service methods for http requests
+  // public getBeersRequest(): void {
+  //   const request = this.http.get('https://api.punkapi.com/v2/beers');
+  //   console.log(request);
+
+  //   this.allProductsSubject.next(request);
   // }
+
+  // Search methods
+  public searchString(message: string): void {
+    this.searchSubject.next(message);
+  }
+  public receivedSearchString(): Observable<string> {
+    return this.searchSubject.asObservable();
+  }
 
   public getBeer(): void {
     const request = this.http.get('https://api.punkapi.com/v2/beers');

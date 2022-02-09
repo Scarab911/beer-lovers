@@ -10,8 +10,7 @@ export class AppComponent {
   title = 'beer-lovers';
 
   constructor(private itemsService: ItemsService) {
-    console.log('pasileido app');
-
-    this.itemsService.getBeersRequest();
+    // console.log('pasileido app');
+    // this.itemsService.getBeersRequest();
   }
 }

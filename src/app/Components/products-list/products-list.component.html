@@ -4,7 +4,7 @@
     <!-- {{searchString}} -->
     <div *ngIf='itemsService.listOfProducts === []'>Beer Not Found
     </div>
-    <ng-container *ngFor="let item of beerList">
+    <ng-container *ngFor="let item of itemsService.listOfProducts ">
 
         <app-product [item]='item'>
         </app-product>
@@ -12,7 +12,7 @@
     </ng-container>
 </div>
 <hr>
-<div class="btn-group">
+<!-- <div class="btn-group">
     <button (click)="nextPage()">Next</button>
     <button (click)="nextPage()">Back</button>
-</div>
+</div> -->
